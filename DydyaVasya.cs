@@ -41,6 +41,7 @@ List<int> Numbers(int number)
 
 int VasyaStyle(int number)
 {
+    byte temp = 0;
     List<int> tempC = new List<int>();
     foreach (var a in Numbers(number / 2 + 1))
     {
@@ -55,10 +56,12 @@ int VasyaStyle(int number)
                     {
                         Console.WriteLine(number + " = " + a + " * " + b + " + " + c);
                         tempC.Add(c);
+                        temp++;
                     }
                 }
             }
         }
     }
+    if (temp == 0) Console.WriteLine("No suitable combinations");
     return number;
 }
