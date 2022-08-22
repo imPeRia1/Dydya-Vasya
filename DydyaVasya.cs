@@ -41,27 +41,28 @@ List<int> Numbers(int number)
 
 int VasyaStyle(int number)
 {
-    byte temp = 0;
+    byte count = 0;
+    List<int> numbers = Numbers(number);
     List<int> tempC = new List<int>();
-    foreach (var a in Numbers(number / 2 + 1))
+    foreach (var a in numbers)
     {
-        foreach (var b in Numbers(number))
+        foreach (var b in numbers)
         {
-            foreach (var c in Numbers(number))
+            foreach (var c in numbers)
             {
-                if ((a * b) + c == number)
+                if (a * b + c == number)
                 {
                     if (tempC.Contains(c)) continue;
                     else
                     {
                         Console.WriteLine(number + " = " + a + " * " + b + " + " + c);
                         tempC.Add(c);
-                        temp++;
+                        count++;
                     }
                 }
             }
         }
     }
-    if (temp == 0) Console.WriteLine("No suitable combinations");
+    if (count == 0) Console.WriteLine("No suitable combinations");
     return number;
 }
